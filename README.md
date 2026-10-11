@@ -14,18 +14,20 @@ Spec-driven, pre-build. See:
 
 ## Stack
 
+- **Monorepo:** Nx
 - **Frontend:** Next.js (App Router, TypeScript) + Tailwind CSS
-- **API:** Express.js (TypeScript) + Zod
+- **API:** Express.js on a dedicated Node.js server (TypeScript) + Zod
 - **Database:** Neon Postgres + Drizzle ORM
 - **Images:** Cloudinary (signed direct uploads + CDN)
-- **Auth:** Email + password, bcrypt, httpOnly cookie sessions
+- **Auth:** Email + password, Argon2id, DB-backed httpOnly cookie sessions
 
 ## Repository layout
 
 ```
 apps/web          Next.js frontend
-apps/api          Express REST API
-packages/shared   Shared types + Zod schemas
+apps/api          Express REST API (dedicated Node server)
+apps/importer     Bulk-import CLI for licensed design sources
+packages/shared   Shared types, Zod schemas, Drizzle schema
 specs/            Spec and plan
 docs/             Research and notes
 ```

@@ -34,11 +34,14 @@ Rules:
 
 ## Stack & architecture
 
-- **Monorepo (npm workspaces):** `apps/web` (Next.js), `apps/api` (Express), `packages/shared`
-  (types + Zod schemas).
+- **Monorepo (Nx):** `apps/web` (Next.js), `apps/api` (Express on a dedicated Node server),
+  `apps/importer` (bulk-import CLI), `packages/shared` (types, Zod schemas, Drizzle schema).
 - The frontend never talks to the database directly; it calls the Express API.
 - Shared request/response schemas live in `packages/shared` to prevent drift.
-- Auth: bcrypt password hashing, server-side sessions, httpOnly cookies. CORS restricted to `WEB_ORIGIN`.
+- Auth: Argon2id password hashing, DB-backed server sessions via `express-session` + Neon (pg),
+  httpOnly cookies, CSRF (SameSite + Fetch-Metadata/Origin checks + double-submit token).
+- The browser reaches the API same-site through a Next.js rewrite (`/api/*` → Express); CORS is
+  only needed if the API is ever exposed directly (exact allowlist, credentials, `Vary: Origin`).
 
 ## Conventions
 
@@ -48,6 +51,7 @@ Rules:
 - Server-side authorization checks on every mutating route (role + ownership).
 - Category values are enums for MVP (style, body part, occasion, difficulty); see the plan for values.
 - Images go to Cloudinary; store only URL + public id in Postgres.
+- Imported designs come only from sources that permit self-hosting; record source, author, and license.
 
 ## Commands (planned)
 
