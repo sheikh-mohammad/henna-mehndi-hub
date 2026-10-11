@@ -51,43 +51,47 @@ gallery trustworthy by approving submissions before they appear.
 
 ### Designs
 
-- **FR-6** A design consists of: one image, a title, an owner (or attribution for imported work), an optional description, and category values (style, body part, occasion, difficulty).
+- **FR-6** A design consists of: one image, a title, an owner (or attribution for imported work), an optional description, and category values (style, body part, occasion, difficulty). Optional extra categories: colour/medium, coverage, era.
 - **FR-7** A logged-in user can submit a design through a form with an image upload.
 - **FR-8** A new submission is **pending** and is NOT shown in the public gallery until approved.
 - **FR-9** An owner can edit the metadata of, and delete, their own design.
 - **FR-10** A rejected design shows the rejection reason to its owner.
 - **FR-11** A design detail page shows: large image, title, artist name (linking to profile), categories, description, and date added.
+- **FR-12** The upload form requires the user to confirm, with an unchecked-by-default checkbox, that they own the design or have permission to share it.
+- **FR-13** The site does not offer "black henna" (PPD-based body art) as a style or filter; it is only ever a safety warning in upload guidance and a search synonym that routes to that warning.
 
 ### Gallery & discovery
 
-- **FR-12** The gallery shows only approved designs, newest first, with pagination or progressive loading.
-- **FR-13** Users can search by free text across title, description, artist name, and categories.
-- **FR-14** Users can filter by style, body part, occasion, and difficulty; filters combine (AND across types).
-- **FR-15** Search and filter state is reflected in the URL so a result view can be shared or bookmarked.
-- **FR-16** When there are no matches, a clear empty state is shown.
-- **FR-17** The gallery is usable on both mobile and desktop.
+- **FR-14** The gallery shows only approved designs, newest first, with pagination or progressive loading.
+- **FR-15** Users can search by free text across title, description, artist name, and categories.
+- **FR-16** Users can filter by style, body part, occasion, and difficulty; filters combine (AND across types).
+- **FR-17** Search and filter state is reflected in the URL so a result view can be shared or bookmarked.
+- **FR-18** When there are no matches, a clear empty state is shown.
+- **FR-19** The gallery is usable on both mobile and desktop.
 
 ### Artist profiles
 
-- **FR-18** Each user has a public profile showing their display name and their approved designs.
+- **FR-20** Each user has a public profile showing their display name and their approved designs.
 
 ### Moderation
 
-- **FR-19** An admin can view all pending designs in a queue.
-- **FR-20** An admin can approve or reject a pending design; rejecting requires/accepts a reason.
-- **FR-21** An admin can remove (unpublish) any published design at any time.
-- **FR-22** Only admins can access moderation features.
+- **FR-21** An admin can view all pending designs in a queue.
+- **FR-22** An admin can approve or reject a pending design; rejecting requires/accepts a reason.
+- **FR-23** An admin can remove (unpublish) any published design at any time.
+- **FR-24** Only admins can access moderation features.
+- **FR-25** Any visitor can report a design (or, once comments exist, a comment) with a reason; reports go privately to admins, and a single design with many reports still produces one review item.
+- **FR-26** There is a public takedown/reporting contact; content confirmed as infringing someone's rights is removed by an admin.
 
 ### Import
 
-- **FR-23** An importer can bulk-load at least 1,000 designs from explicitly licensed sources.
-- **FR-24** Every imported design records its source, author, license, and original URL for attribution.
-- **FR-25** Imported designs without a registered owner display an attribution label instead of a profile link.
+- **FR-27** An importer loads designs from explicitly licensed sources that permit self-hosted use and re-hosting, with a target of 1,000 designs.
+- **FR-28** Every imported design records its source, author, license, and original URL for attribution.
+- **FR-29** Imported designs without a registered owner display an attribution label instead of a profile link.
 
 ### Phase 2 — Likes & comments (schema and rules defined now)
 
-- **FR-26** A logged-in user can like/unlike a design exactly once; a like count is shown.
-- **FR-27** A logged-in user can comment on a design; comments display publicly and can be removed by an admin.
+- **FR-30** A logged-in user can like/unlike a design exactly once; a like count is shown.
+- **FR-31** A logged-in user can comment on a design; comments display publicly and can be removed by an admin.
 
 ## 4. Edge cases & rules
 
@@ -103,6 +107,10 @@ gallery trustworthy by approving submissions before they appear.
 - **Search input:** empty string returns all; special characters must not break the query.
 - **Pagination beyond the last page** → sensible empty result, not an error.
 - **Rate limiting** applies to registration and upload to limit spam.
+- **Ownership attestation** (unchecked by default) is required before an upload is accepted; submissions without it are invalid.
+- **"Black henna" search** routes to a safety warning, never to designs.
+- **Reporting** is rate-limited; a user can report the same design at most once per day, and duplicate reports collapse into one review item.
+- **Imported designs** come only from sources that permit self-hosting/re-hosting; source, author, license, and original URL are mandatory and stored.
 - **Imported designs** may have `owner = none`; the UI must handle this without errors.
 - **Deletion policy:** removing a design hides it (soft-delete) so likes/comments/audit survive.
 
@@ -126,6 +134,8 @@ gallery trustworthy by approving submissions before they appear.
 - [ ] A logged-in user can upload a design; it is pending and hidden from the public gallery.
 - [ ] An owner sees statuses, can edit/delete their own designs, and cannot modify others' designs (verified server-side).
 - [ ] An admin can approve/reject with a reason and remove published designs; rejection reason is visible to the owner.
-- [ ] The importer loads ≥1,000 designs with attribution metadata.
+- [ ] The importer loads designs (target ≥1,000) with attribution metadata, sourcing only from sources that permit re-hosting.
 - [ ] Invalid uploads (wrong type or too large) show clear errors.
+- [ ] The upload form requires the ownership attestation checkbox and "black henna" is not offered as a filter.
+- [ ] Visitors can report a design with a reason and the report reaches the admin privately.
 - [ ] Likes/favorites and comments remain out of MVP but their rules are defined for the next phase.
