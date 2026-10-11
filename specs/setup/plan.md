@@ -1,6 +1,6 @@
 # Plan — Workspace & App Scaffold (setup execution)
 
-> Companion to `specs/setup.md`. The setup spec defines what the scaffold must be; this file is
+> Companion to `specs/setup/spec.md`. The setup spec defines what the scaffold must be; this file is
 > the ordered HOW. Each step maps to one or more setup requirements (S-#). Spec wins on conflict.
 
 ## 0. Ground rules
@@ -9,7 +9,7 @@
 - The repo already contains committed docs; scaffold generated in a temp dir first, merged in,
   so existing `specs/` and `docs/` are never clobbered.
 - Commit + push after each self-contained step. Never commit `.env`.
-- Verify vs `specs/setup.md` acceptance criteria before calling a step done.
+- Verify vs `specs/setup/spec.md` acceptance criteria before calling a step done.
 
 ## 1. Workspace initialization (S-1)
 
@@ -63,7 +63,7 @@
 - `npm run dev` starts web (`:3000`) and api (`:4000`); api answers `GET /health`.
 - `npm run build`, `npm run lint`, `npm run typecheck` all exit 0.
 - `nx show projects` lists `web`, `api`, `importer`, `shared`.
-- Tick the `specs/setup.md` acceptance checkboxes, commit, push.
+- Tick the `specs/setup/spec.md` acceptance checkboxes, commit, push.
 
 ## 7. Post-scaffold note
 

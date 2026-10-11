@@ -9,8 +9,8 @@ discover them. Submissions are reviewed by admins before they appear publicly.
 Spec-driven, pre-build. See:
 
 - [`docs/PRD.md`](docs/PRD.md) — product requirements (the WHAT)
-- [`specs/plan.md`](specs/plan.md) — how the current step is built (the HOW)
-- [`specs/setup.md`](specs/setup.md) — the current setup milestone
+- [`specs/setup/plan.md`](specs/setup/plan.md) — how the current step is built (the HOW)
+- [`specs/setup/spec.md`](specs/setup/spec.md) — the current setup milestone
 - [`docs/research-findings.md`](docs/research-findings.md) — research notes
 
 ## Stack
@@ -29,7 +29,7 @@ apps/web          Next.js frontend
 apps/api          Express REST API (dedicated Node server)
 apps/importer     Bulk-import CLI for licensed design sources
 packages/shared   Shared types, Zod schemas, Drizzle schema
-specs/            Setup spec and plan for the current milestone
+specs/            Per-milestone docs: specs/setup/ holds the current setup spec + plan
 docs/             Product requirements (PRD) and research notes
 ```
 

@@ -13,11 +13,11 @@ The product requirements are the source of truth; code is a build output. Follow
 
 1. **Research** — investigate before writing. Findings go in `docs/`.
 2. **Specify** — `docs/PRD.md` is the product requirements document (the WHAT, behaviour + goals).
-   Setup-scope steps get their own `specs/setup.md`; never put framework/database/layout choices
-   into a requirements document.
+   Setup-scope steps get their own `specs/setup/spec.md`; never put framework/database/layout
+   choices into a requirements document.
 3. **Clarify** — interview the user; fold answers into the requirements before building.
-4. **Plan** — `specs/plan.md` holds the HOW for the current step (architecture choices land in
-   the PRD's solution overview).
+4. **Plan** — `specs/setup/plan.md` holds the HOW for the current step (architecture choices land
+   in the PRD's solution overview).
 5. **Build** — small, verifiable steps.
 
 Rules:
