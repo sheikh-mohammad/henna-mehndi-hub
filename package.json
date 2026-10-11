@@ -1,0 +1,62 @@
+{
+  "name": "@henna-hub/source",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nx run-many --targets=dev,serve --projects=web,api --parallel",
+    "build": "nx run-many --targets=build --all",
+    "lint": "nx run-many --targets=lint --all",
+    "typecheck": "nx run-many --targets=typecheck --all"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^2.1.1",
+    "@nx/devkit": "23.2.0",
+    "@nx/esbuild": "23.2.0",
+    "@nx/eslint": "^23.2.0",
+    "@nx/eslint-plugin": "^23.2.0",
+    "@nx/express": "^23.2.0",
+    "@nx/js": "23.2.0",
+    "@nx/next": "^23.2.0",
+    "@nx/node": "^23.2.0",
+    "@nx/web": "23.2.0",
+    "@nx/webpack": "^23.2.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.7",
+    "@svgr/webpack": "^8.0.1",
+    "@swc-node/register": "1.11.1",
+    "@swc/cli": "~0.8.1",
+    "@swc/core": "1.15.8",
+    "@swc/helpers": "0.5.18",
+    "@types/express": "^5.0.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.71.1",
+    "@typescript-eslint/parser": "^8.71.1",
+    "esbuild": "^0.27.0",
+    "eslint": "^9.8.0",
+    "eslint-config-prettier": "^10.1.8",
+    "nx": "23.2.0",
+    "prettier": "^3.8.1",
+    "react-refresh": "^0.10.0",
+    "tslib": "^2.3.0",
+    "typescript": "~6.0.3",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^7.0.0",
+    "webpack-dev-server": "^5.2.1"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "dependencies": {
+    "axios": "^1.6.0",
+    "express": "^5.1.0",
+    "next": "~16.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -67,12 +67,12 @@ and every change is committed and pushed.
 
 ## 6. Acceptance criteria
 
-- [ ] `npm install` succeeds from the repo root.
-- [ ] `npm run dev` starts both apps; web renders and the API answers `GET /health` with `200`.
-- [ ] `npm run build` completes with zero errors across all workspaces.
-- [ ] `npm run lint` and `npm run typecheck` pass with zero errors.
-- [ ] The Nx task graph runs web, api, importer, and shared (`nx show projects` lists them).
-- [ ] `apps/web`, `apps/api`, `apps/importer`, and `packages/shared` exist and are typed.
-- [ ] `.env.example` exists, `.env` is gitignored, and no secrets are in the repo.
-- [ ] Existing `specs/` and `docs/` are untouched and still consistent with the docs.
-- [ ] The finished scaffold is committed and pushed to `origin/main`.
+- [x] `npm install` succeeds from the repo root.
+- [x] `npm run dev` starts both apps; web renders and the API answers `GET /health` with `200`.
+- [x] `npm run build` completes with zero errors across all workspaces.
+- [x] `npm run lint` and `npm run typecheck` pass with zero errors.
+- [x] The Nx task graph runs web, api, importer, and shared (`nx show projects` lists them).
+- [x] `apps/web`, `apps/api`, `apps/importer`, and `packages/shared` exist and are typed.
+- [x] `.env.example` exists, `.env` is gitignored, and no secrets are in the repo.
+- [x] Existing `specs/` and `docs/` are untouched and still consistent with the docs.
+- [x] The finished scaffold is committed and pushed to `origin/main`.

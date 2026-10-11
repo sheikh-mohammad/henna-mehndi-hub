@@ -35,19 +35,17 @@ docs/             Product requirements (PRD) and research notes
 
 ## Getting started
 
-> The app is not scaffolded yet. Planned setup:
-
 ```bash
 npm install
 
-# environment (fill with your own credentials)
+# optional: copy the env template (values only needed by later phases)
 cp .env.example .env
 
-# database
-npm run db:push
-
-# run both apps in development
+# run web (http://localhost:3000) and API (http://localhost:4000) in watch mode
 npm run dev
+
+# API health check
+curl http://localhost:4000/health   # -> {"status":"ok"}
 ```
 
 ### Environment variables
@@ -62,17 +60,17 @@ npm run dev
 | `WEB_ORIGIN`            | api     | Allowed CORS origin (the Next.js app)        |
 | `NEXT_PUBLIC_API_URL`   | web     | Base URL of the Express API                  |
 
-## Scripts (planned)
+## Scripts
 
-| Command             | Purpose                              |
-| ------------------- | ------------------------------------ |
-| `npm run dev`       | Run frontend + API in watch mode     |
-| `npm run build`     | Build both apps                      |
-| `npm run lint`      | Lint all workspaces                  |
-| `npm run typecheck` | Type-check all workspaces            |
-| `npm run db:push`   | Push Drizzle schema to the database  |
-| `npm run db:studio` | Open Drizzle Studio                  |
-| `npm run import`    | Run the bulk design importer         |
+| Command             | Purpose                                     |
+| ------------------- | ------------------------------------------- |
+| `npm run dev`       | Run web + API in watch mode                 |
+| `npm run build`     | Build all workspaces                        |
+| `npm run lint`      | Lint all workspaces                         |
+| `npm run typecheck` | Type-check all workspaces                   |
+| `npm run db:push`   | Push Drizzle schema to the database (later) |
+| `npm run db:studio` | Open Drizzle Studio (later)                 |
+| `npm run import`    | Run the bulk design importer (later)        |
 
 ## Contributing
 
