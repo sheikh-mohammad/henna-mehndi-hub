@@ -9,21 +9,23 @@ to their name; admins approve submissions before they appear publicly.
 
 ## Spec-driven development (this project)
 
-The spec is the source of truth; code is a build output. Follow the loop:
+The product requirements are the source of truth; code is a build output. Follow the loop:
 
 1. **Research** — investigate before writing. Findings go in `docs/`.
-2. **Specify** — `specs/001-henna-design-hub/spec.md` is technology-free (the WHAT). Never put
-   framework/database/layout choices in the spec.
-3. **Clarify** — interview the user; fold answers into the spec before building.
-4. **Plan** — `specs/001-henna-design-hub/plan.md` holds the HOW (Next.js + Express + Neon + Cloudinary).
+2. **Specify** — `docs/PRD.md` is the product requirements document (the WHAT, behaviour + goals).
+   Setup-scope steps get their own `specs/setup.md`; never put framework/database/layout choices
+   into a requirements document.
+3. **Clarify** — interview the user; fold answers into the requirements before building.
+4. **Plan** — `specs/plan.md` holds the HOW for the current step (architecture choices land in
+   the PRD's solution overview).
 5. **Build** — small, verifiable steps.
 
 Rules:
 
-- A behaviour change starts in the spec. Spec diff and code diff ship in the **same commit**.
-- If a gap appears mid-build: stop, fix the spec, then continue.
-- If spec and plan disagree, the spec wins and the plan is corrected.
-- Update the acceptance criteria in the spec as they are met.
+- A behaviour change starts in the PRD. PRD diff and code diff ship in the **same commit**.
+- If a gap appears mid-build: stop, fix the PRD/requirements, then continue.
+- If requirements and plan disagree, the requirements win and the plan is corrected.
+- Update the acceptance criteria in the PRD as they are met.
 
 ## Commits and pushes
 
